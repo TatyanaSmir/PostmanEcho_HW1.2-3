@@ -31,4 +31,18 @@ public class PostmanEchoTest {
                 .body("data",equalTo("Фамилия Кузнецов"))
         ;
     }
+
+    @Test
+    void shouldReturnSomeData3(){
+        given()
+                .baseUri("https://postman-echo.com")
+                .contentType("text/plain; charset=UTF-8")
+                .body("Фамилия Кузнецов")
+                .when()
+                .post("/post")
+                .then()
+                .statusCode(200)
+                .body("data",equalTo("Фамилия Иванов"))
+        ;
+    }
 }
